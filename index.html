@@ -21,7 +21,6 @@
   }
 
   * { margin:0; padding:0; box-sizing:border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -32,7 +31,6 @@
     overflow-x: hidden;
   }
 
-  /* ── NOISE TEXTURE OVERLAY ── */
   body::before {
     content:'';
     position:fixed;
@@ -42,87 +40,58 @@
     z-index:0;
   }
 
-  /* ── NAV ── */
   nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
     padding: 18px 6%;
     background: rgba(6,10,18,0.85);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
   }
 
-  .nav-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
+  .nav-brand { display: flex; align-items: center; gap: 12px; }
 
   .nav-dot {
-    width: 10px;
-    height: 10px;
-    background: var(--accent);
-    border-radius: 50%;
+    width: 10px; height: 10px;
+    background: var(--accent); border-radius: 50%;
     animation: pulse 2s infinite;
   }
 
   @keyframes pulse {
     0%,100% { box-shadow: 0 0 0 0 rgba(249,115,22,0.4); }
-    50% { box-shadow: 0 0 0 8px rgba(249,115,22,0); }
+    50%      { box-shadow: 0 0 0 8px rgba(249,115,22,0); }
   }
 
   .brand-name {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 18px;
-    letter-spacing: -0.5px;
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-size: 18px; letter-spacing: -0.5px;
   }
-
   .brand-name span { color: var(--accent); }
 
   .nav-links { display: flex; gap: 32px; align-items: center; }
 
   .nav-links a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-    transition: color 0.2s;
+    color: var(--muted); text-decoration: none;
+    font-size: 14px; font-weight: 500; transition: color 0.2s;
   }
-
   .nav-links a:hover { color: var(--text); }
 
   .nav-cta {
-    background: var(--accent) !important;
-    color: #000 !important;
-    padding: 8px 18px;
-    border-radius: 6px;
-    font-weight: 600 !important;
-    transition: background 0.2s, transform 0.2s !important;
+    background: var(--accent) !important; color: #000 !important;
+    padding: 8px 18px; border-radius: 6px; font-weight: 600 !important;
   }
+  .nav-cta:hover { background: var(--accent2) !important; }
 
-  .nav-cta:hover { background: var(--accent2) !important; transform: translateY(-1px); }
-
-  /* ── HERO ── */
+  /* HERO */
   .hero {
-    position: relative;
-    min-height: 88vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 80px 6%;
-    overflow: hidden;
+    position: relative; min-height: 88vh;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: flex-start;
+    padding: 80px 6%; overflow: hidden;
   }
 
   .hero-grid {
-    position: absolute;
-    inset: 0;
+    position: absolute; inset: 0;
     background-image:
       linear-gradient(rgba(249,115,22,0.04) 1px, transparent 1px),
       linear-gradient(90deg, rgba(249,115,22,0.04) 1px, transparent 1px);
@@ -131,224 +100,136 @@
   }
 
   .hero-glow {
-    position: absolute;
-    top: -20%;
-    right: -10%;
-    width: 600px;
-    height: 600px;
+    position: absolute; top: -20%; right: -10%;
+    width: 600px; height: 600px;
     background: radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 70%);
     pointer-events: none;
   }
 
   .hero-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(249,115,22,0.1);
-    border: 1px solid var(--border);
-    color: var(--accent);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 6px 14px;
-    border-radius: 100px;
-    margin-bottom: 32px;
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(249,115,22,0.1); border: 1px solid var(--border);
+    color: var(--accent); font-size: 12px; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 100px; margin-bottom: 32px;
     position: relative;
+    animation: fadeUp 0.5s ease both 0.1s;
   }
 
   .hero h1 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: clamp(48px, 7vw, 96px);
-    line-height: 1;
-    letter-spacing: -3px;
-    max-width: 800px;
-    margin-bottom: 28px;
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-size: clamp(48px, 7vw, 96px); line-height: 1;
+    letter-spacing: -3px; max-width: 800px; margin-bottom: 28px;
     position: relative;
+    animation: fadeUp 0.5s ease both 0.2s;
   }
 
-  .hero h1 em {
-    font-style: normal;
-    color: var(--accent);
-    position: relative;
-  }
+  .hero h1 em { font-style: normal; color: var(--accent); }
 
   .hero-sub {
-    font-size: 18px;
-    color: var(--muted);
-    max-width: 520px;
-    line-height: 1.7;
-    margin-bottom: 44px;
+    font-size: 18px; color: var(--muted);
+    max-width: 520px; line-height: 1.7; margin-bottom: 44px;
     position: relative;
+    animation: fadeUp 0.5s ease both 0.3s;
   }
 
   .hero-actions {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
+    display: flex; gap: 16px; flex-wrap: wrap;
     position: relative;
+    animation: fadeUp 0.5s ease both 0.4s;
   }
 
   .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--accent);
-    color: #000;
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 600;
-    font-size: 15px;
-    padding: 14px 28px;
-    border-radius: 8px;
-    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent); color: #000;
+    font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 15px;
+    padding: 14px 28px; border-radius: 8px; text-decoration: none;
     transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
   }
-
   .btn-primary:hover {
-    background: var(--accent2);
-    transform: translateY(-2px);
+    background: var(--accent2); transform: translateY(-2px);
     box-shadow: 0 12px 32px rgba(249,115,22,0.3);
   }
 
   .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: transparent;
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 500;
-    font-size: 15px;
-    padding: 14px 28px;
-    border-radius: 8px;
-    border: 1px solid rgba(255,255,255,0.12);
-    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 10px;
+    background: transparent; color: var(--text);
+    font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 15px;
+    padding: 14px 28px; border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.12); text-decoration: none;
     transition: border-color 0.2s, transform 0.2s;
   }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.3); transform: translateY(-2px); }
 
-  .btn-secondary:hover {
-    border-color: rgba(255,255,255,0.3);
-    transform: translateY(-2px);
-  }
-
-  /* ── STATS BAR ── */
+  /* STATS */
   .stats-bar {
     display: flex;
-    gap: 0;
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
     background: var(--surface);
-    overflow: hidden;
   }
 
   .stat {
-    flex: 1;
-    padding: 28px 6%;
+    flex: 1; padding: 28px 4%;
     border-right: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    gap: 16px;
+    display: flex; align-items: center; gap: 16px;
   }
-
   .stat:last-child { border-right: none; }
 
   .stat-icon {
-    width: 44px;
-    height: 44px;
-    background: var(--glow);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--accent);
-    font-size: 18px;
-    flex-shrink: 0;
+    width: 44px; height: 44px;
+    background: var(--glow); border: 1px solid var(--border);
+    border-radius: 10px; display: flex; align-items: center;
+    justify-content: center; color: var(--accent); font-size: 18px; flex-shrink: 0;
   }
 
   .stat-num {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 28px;
-    color: var(--text);
-    line-height: 1;
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 28px; color: var(--text); line-height: 1;
   }
 
-  .stat-label {
-    font-size: 13px;
-    color: var(--muted);
-    margin-top: 3px;
-  }
+  .stat-label { font-size: 13px; color: var(--muted); margin-top: 3px; }
 
-  /* ── SECTIONS ── */
+  /* SECTIONS */
   section { position: relative; z-index: 1; }
 
   .section-wrap {
-    padding: 96px 6%;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 96px 6%; max-width: 1200px; margin: 0 auto;
   }
 
   .section-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
   }
 
-  .eyebrow-line {
-    width: 32px;
-    height: 2px;
-    background: var(--accent);
-  }
+  .eyebrow-line { width: 32px; height: 2px; background: var(--accent); }
 
   .eyebrow-text {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--accent);
+    font-size: 12px; font-weight: 600; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--accent);
   }
 
   .section-title {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: clamp(28px, 4vw, 42px);
-    letter-spacing: -1px;
-    margin-bottom: 48px;
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: clamp(28px, 4vw, 42px); letter-spacing: -1px; margin-bottom: 48px;
   }
 
-  /* ── POSTS ── */
+  /* POSTS */
   .posts-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;
   }
 
   .post-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 32px;
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 32px; text-decoration: none; color: inherit;
+    display: flex; flex-direction: column; gap: 16px;
     transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-    position: relative;
-    overflow: hidden;
+    position: relative; overflow: hidden;
   }
 
   .post-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
     background: linear-gradient(90deg, var(--accent), transparent);
-    opacity: 0;
-    transition: opacity 0.3s;
+    opacity: 0; transition: opacity 0.3s;
   }
 
   .post-card:hover {
@@ -356,273 +237,144 @@
     border-color: rgba(249,115,22,0.3);
     box-shadow: 0 24px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(249,115,22,0.1);
   }
-
   .post-card:hover::before { opacity: 1; }
 
-  .post-meta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+  .post-meta { display: flex; align-items: center; justify-content: space-between; }
 
   .post-date {
-    font-size: 12px;
-    color: var(--muted);
-    display: flex;
-    align-items: center;
-    gap: 6px;
+    font-size: 12px; color: var(--muted);
+    display: flex; align-items: center; gap: 6px;
   }
 
   .post-author-tag {
-    font-size: 11px;
-    background: rgba(249,115,22,0.1);
-    color: var(--accent);
-    padding: 3px 10px;
-    border-radius: 100px;
-    font-weight: 600;
+    font-size: 11px; background: rgba(249,115,22,0.1);
+    color: var(--accent); padding: 3px 10px; border-radius: 100px; font-weight: 600;
   }
 
   .post-card h3 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-    letter-spacing: -0.5px;
-    line-height: 1.3;
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 20px; letter-spacing: -0.5px; line-height: 1.3;
   }
 
-  .post-card p {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.7;
-    flex: 1;
-  }
+  .post-card p { font-size: 14px; color: var(--muted); line-height: 1.7; flex: 1; }
 
   .post-link {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--accent);
-    margin-top: 4px;
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 600; color: var(--accent); margin-top: 4px;
   }
-
   .post-link i { transition: transform 0.2s; }
   .post-card:hover .post-link i { transform: translateX(4px); }
 
-  /* ── TEAM ── */
+  /* TEAM */
   .team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;
   }
 
   .member-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 36px 32px;
-    text-align: center;
-    text-decoration: none;
-    color: inherit;
-    display: block;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 36px 32px; text-align: center;
+    text-decoration: none; color: inherit; display: block;
     transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
   }
-
   .member-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(249,115,22,0.3);
+    transform: translateY(-6px); border-color: rgba(249,115,22,0.3);
     box-shadow: 0 24px 48px rgba(0,0,0,0.4);
   }
 
   .member-avatar {
-    width: 88px;
-    height: 88px;
-    border-radius: 50%;
-    border: 3px solid var(--accent);
-    margin: 0 auto 20px;
-    object-fit: cover;
-    display: block;
+    width: 88px; height: 88px; border-radius: 50%;
+    border: 3px solid var(--accent); margin: 0 auto 20px;
+    object-fit: cover; display: block;
     box-shadow: 0 0 0 6px rgba(249,115,22,0.1);
   }
 
-  .member-name {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    margin-bottom: 6px;
-  }
-
-  .member-role {
-    font-size: 13px;
-    color: var(--muted);
-    margin-bottom: 20px;
-  }
-
-  .member-links {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-  }
+  .member-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 18px; margin-bottom: 6px; }
+  .member-role { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+  .member-links { display: flex; justify-content: center; }
 
   .member-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--accent);
-    text-decoration: none;
-    background: rgba(249,115,22,0.1);
-    padding: 6px 14px;
-    border-radius: 6px;
-    border: 1px solid var(--border);
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 500; color: var(--accent);
+    text-decoration: none; background: rgba(249,115,22,0.1);
+    padding: 6px 14px; border-radius: 6px; border: 1px solid var(--border);
     transition: background 0.2s;
   }
-
   .member-link:hover { background: rgba(249,115,22,0.2); }
 
-  /* ── ABOUT ── */
+  /* ABOUT */
   .about-block {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 48px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
-    align-items: center;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 16px; padding: 48px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
   }
 
   .about-block h3 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 28px;
-    letter-spacing: -0.5px;
-    margin-bottom: 16px;
+    font-family: 'Syne', sans-serif; font-weight: 700;
+    font-size: 28px; letter-spacing: -0.5px; margin-bottom: 16px;
   }
 
-  .about-block p {
-    color: var(--muted);
-    line-height: 1.8;
-    margin-bottom: 12px;
-    font-size: 15px;
-  }
+  .about-block p { color: var(--muted); line-height: 1.8; margin-bottom: 12px; font-size: 15px; }
 
-  .tech-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  }
+  .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; }
 
   .tech-tag {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    color: var(--text);
-    font-size: 13px;
-    font-weight: 500;
-    padding: 8px 16px;
-    border-radius: 8px;
+    display: flex; align-items: center; gap: 8px;
+    background: var(--surface2); border: 1px solid var(--border);
+    color: var(--text); font-size: 13px; font-weight: 500;
+    padding: 8px 16px; border-radius: 8px;
   }
-
   .tech-tag i { color: var(--accent); }
 
-  /* ── CONTACT CTA ── */
+  /* CONTACT CTA */
   .contact-cta {
     background: linear-gradient(135deg, var(--surface) 0%, rgba(249,115,22,0.05) 100%);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 64px 48px;
-    text-align: center;
+    border: 1px solid var(--border); border-radius: 16px;
+    padding: 64px 48px; text-align: center;
   }
 
   .contact-cta h3 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: clamp(28px, 4vw, 42px);
-    letter-spacing: -1px;
-    margin-bottom: 16px;
+    font-family: 'Syne', sans-serif; font-weight: 800;
+    font-size: clamp(28px, 4vw, 42px); letter-spacing: -1px; margin-bottom: 16px;
   }
 
   .contact-cta p {
-    color: var(--muted);
-    font-size: 16px;
-    margin-bottom: 36px;
-    max-width: 480px;
-    margin-left: auto;
-    margin-right: auto;
+    color: var(--muted); font-size: 16px; margin-bottom: 36px;
+    max-width: 480px; margin-left: auto; margin-right: auto;
   }
 
-  /* ── FOOTER ── */
+  /* FOOTER */
   footer {
-    border-top: 1px solid var(--border);
-    padding: 32px 6%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    border-top: 1px solid var(--border); padding: 32px 6%;
+    display: flex; align-items: center; justify-content: space-between;
     background: var(--surface);
   }
 
-  .footer-brand {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-  }
-
+  .footer-brand { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; }
   .footer-brand span { color: var(--accent); }
-
-  footer p {
-    font-size: 13px;
-    color: var(--muted);
-  }
-
+  footer p { font-size: 13px; color: var(--muted); }
   .footer-links { display: flex; gap: 20px; }
-
-  .footer-links a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 13px;
-    transition: color 0.2s;
-  }
-
+  .footer-links a { color: var(--muted); text-decoration: none; font-size: 13px; transition: color 0.2s; }
   .footer-links a:hover { color: var(--text); }
 
-  /* ── DIVIDER ── */
-  .divider {
-    height: 1px;
-    background: var(--border);
-    margin: 0 6%;
-  }
+  .divider { height: 1px; background: var(--border); margin: 0 6%; }
 
-  /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  .hero-tag  { animation: fadeUp 0.5s ease both; animation-delay: 0.1s; }
-  .hero h1   { animation: fadeUp 0.5s ease both; animation-delay: 0.2s; }
-  .hero-sub  { animation: fadeUp 0.5s ease both; animation-delay: 0.3s; }
-  .hero-actions { animation: fadeUp 0.5s ease both; animation-delay: 0.4s; }
-
-  /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     .about-block { grid-template-columns: 1fr; }
     .stats-bar { flex-direction: column; }
     .stat { border-right: none; border-bottom: 1px solid var(--border); }
     .stat:last-child { border-bottom: none; }
-    nav { padding: 16px 5%; }
-    .nav-links { gap: 16px; }
     footer { flex-direction: column; gap: 16px; text-align: center; }
+    .nav-links { gap: 16px; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <div class="nav-brand">
     <div class="nav-dot"></div>
@@ -636,66 +388,40 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-grid"></div>
   <div class="hero-glow"></div>
-
-  <div class="hero-tag">
-    <i class="fa-solid fa-bolt"></i>
-    HMIS · Universidad de Almería · Equipo 11
-  </div>
-
+  <div class="hero-tag"><i class="fa-solid fa-bolt"></i> HMIS · Universidad de Almería · Equipo 11</div>
   <h1>A Última<br><em>Hora</em> SL</h1>
-
   <p class="hero-sub">
     Blog colaborativo de Víctor Ruz Hernández y Jorge Ramírez Sánchez.
     Documentamos nuestro proceso de desarrollo, herramientas y aprendizajes en HMIS.
   </p>
-
   <div class="hero-actions">
-    <a href="#posts" class="btn-primary">
-      <i class="fa-regular fa-newspaper"></i> Ver entradas
-    </a>
-    <a href="#equipo" class="btn-secondary">
-      <i class="fa-solid fa-users"></i> Conocer el equipo
-    </a>
+    <a href="#posts" class="btn-primary"><i class="fa-regular fa-newspaper"></i> Ver entradas</a>
+    <a href="#equipo" class="btn-secondary"><i class="fa-solid fa-users"></i> Conocer el equipo</a>
   </div>
 </div>
 
-<!-- STATS BAR -->
 <div class="stats-bar">
   <div class="stat">
     <div class="stat-icon"><i class="fa-regular fa-file-lines"></i></div>
-    <div>
-      <div class="stat-num">2</div>
-      <div class="stat-label">Entradas publicadas</div>
-    </div>
+    <div><div class="stat-num">2</div><div class="stat-label">Entradas publicadas</div></div>
   </div>
   <div class="stat">
     <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
-    <div>
-      <div class="stat-num">2</div>
-      <div class="stat-label">Miembros del equipo</div>
-    </div>
+    <div><div class="stat-num">2</div><div class="stat-label">Miembros del equipo</div></div>
   </div>
   <div class="stat">
     <div class="stat-icon"><i class="fa-brands fa-github"></i></div>
-    <div>
-      <div class="stat-num">11</div>
-      <div class="stat-label">Equipo HMIS 2026</div>
-    </div>
+    <div><div class="stat-num">11</div><div class="stat-label">Equipo HMIS 2026</div></div>
   </div>
   <div class="stat">
     <div class="stat-icon"><i class="fa-solid fa-cloud"></i></div>
-    <div>
-      <div class="stat-num">2</div>
-      <div class="stat-label">Plataformas de despliegue</div>
-    </div>
+    <div><div class="stat-num">2</div><div class="stat-label">Plataformas de despliegue</div></div>
   </div>
 </div>
 
-<!-- POSTS -->
 <section id="posts">
   <div class="section-wrap">
     <div class="section-eyebrow">
@@ -703,7 +429,6 @@
       <span class="eyebrow-text">Últimas entradas</span>
     </div>
     <h2 class="section-title">Lo que estamos aprendiendo</h2>
-
     <div class="posts-grid">
       {% for post in site.posts %}
       <a class="post-card" href="{{ post.url | relative_url }}">
@@ -716,9 +441,7 @@
         </div>
         <h3>{{ post.title }}</h3>
         <p>{{ post.excerpt | strip_html | truncatewords: 28 }}</p>
-        <div class="post-link">
-          Leer artículo <i class="fa-solid fa-arrow-right"></i>
-        </div>
+        <div class="post-link">Leer artículo <i class="fa-solid fa-arrow-right"></i></div>
       </a>
       {% endfor %}
     </div>
@@ -727,7 +450,6 @@
 
 <div class="divider"></div>
 
-<!-- EQUIPO -->
 <section id="equipo">
   <div class="section-wrap">
     <div class="section-eyebrow">
@@ -735,7 +457,6 @@
       <span class="eyebrow-text">El equipo</span>
     </div>
     <h2 class="section-title">Quiénes somos</h2>
-
     <div class="team-grid">
       <a class="member-card" href="https://ualvrh954.github.io/">
         <img class="member-avatar" src="https://github.com/ualvrh954.png" alt="Víctor Ruz Hernández">
@@ -745,7 +466,6 @@
           <span class="member-link"><i class="fa-brands fa-github"></i> Ver perfil</span>
         </div>
       </a>
-
       <a class="member-card" href="https://ualjrs249.github.io/">
         <img class="member-avatar" src="https://github.com/ualjrs249.png" alt="Jorge Ramírez Sánchez">
         <div class="member-name">Jorge Ramírez Sánchez</div>
@@ -760,7 +480,6 @@
 
 <div class="divider"></div>
 
-<!-- SOBRE NOSOTROS -->
 <section id="sobre">
   <div class="section-wrap">
     <div class="about-block">
@@ -770,20 +489,11 @@
           <span class="eyebrow-text">Sobre el proyecto</span>
         </div>
         <h3>Un blog construido con propósito</h3>
-        <p>
-          Somos el equipo <strong>A Última Hora SL</strong>, dos estudiantes de la Universidad de Almería
-          que trabajamos de forma colaborativa en la asignatura
-          <em>Herramientas y Métodos en Ingeniería del Software</em>.
-        </p>
-        <p>
-          Este blog documenta nuestro proceso: desde la configuración del entorno de desarrollo
-          hasta el despliegue en la nube, pasando por el trabajo en equipo con Git y GitHub Flow.
-        </p>
+        <p>Somos el equipo <strong>A Última Hora SL</strong>, dos estudiantes de la Universidad de Almería que trabajamos de forma colaborativa en la asignatura <em>Herramientas y Métodos en Ingeniería del Software</em>.</p>
+        <p>Este blog documenta nuestro proceso: desde la configuración del entorno de desarrollo hasta el despliegue en la nube, pasando por el trabajo en equipo con Git y GitHub Flow.</p>
       </div>
       <div>
-        <p style="color:var(--muted);font-size:13px;margin-bottom:16px;font-weight:600;letter-spacing:1px;text-transform:uppercase;">
-          Tecnologías que usamos
-        </p>
+        <p style="color:var(--muted);font-size:13px;margin-bottom:16px;font-weight:600;letter-spacing:1px;text-transform:uppercase;">Tecnologías que usamos</p>
         <div class="tech-stack">
           <div class="tech-tag"><i class="fa-brands fa-github"></i> GitHub Pages</div>
           <div class="tech-tag"><i class="fa-solid fa-cloud"></i> Azure</div>
@@ -799,20 +509,16 @@
 
 <div class="divider"></div>
 
-<!-- CONTACT CTA -->
 <section>
   <div class="section-wrap">
     <div class="contact-cta">
       <h3>¿Tienes alguna pregunta?</h3>
       <p>Si quieres saber más sobre el proyecto, el código o el proceso de despliegue, escríbenos.</p>
-      <a href="contact.html" class="btn-primary">
-        <i class="fa-solid fa-paper-plane"></i> Ir al formulario de contacto
-      </a>
+      <a href="contact.html" class="btn-primary"><i class="fa-solid fa-paper-plane"></i> Ir al formulario de contacto</a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-brand">A Última <span>Hora</span> SL</div>
   <p>© 2026 · Universidad de Almería · Equipo 11 HMIS</p>
